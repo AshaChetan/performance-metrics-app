@@ -1,10 +1,12 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-employee-card',
-  standalone: false,
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './employee-card.html',
-  styleUrl: './employee-card.scss'
+  styleUrls: ['./employee-card.scss']
 })
 export class EmployeeCard {
 
