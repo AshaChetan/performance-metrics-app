@@ -34,4 +34,8 @@ export class PerformanceService {
       ]
     };
   }
+  addEmployee(emp: Employee) {
+    const currentEmp = this._employees$.getValue();
+    this._employees$.next([...currentEmp, emp]);
+  }
 }

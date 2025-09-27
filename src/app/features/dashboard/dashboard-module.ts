@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { DashboardRoutingModule } from './dashboard-routing-module';
 import { Dashboard } from './dashboard';
 import { ChartWidget } from '../../shared/chart-widget/chart-widget';
+import { EmployeeForm } from '../../shared/employee-form/employee-form';
+import { EmployeeCard } from '../../shared/employee-card/employee-card';
 
 @NgModule({
   declarations: [
@@ -12,7 +14,8 @@ import { ChartWidget } from '../../shared/chart-widget/chart-widget';
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    ChartWidget
+    ChartWidget,
+    EmployeeForm
   ]
 })
 export class DashboardModule { }

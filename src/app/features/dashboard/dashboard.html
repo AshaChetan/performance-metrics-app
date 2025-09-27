@@ -4,4 +4,7 @@
   <div class="chart-area">
     <app-chart-widget [chartData]="chartData" [chartOptions]="chartOptions"></app-chart-widget>
   </div>
+  <div class="form-area">
+    <app-employee-form (formSubmit)="onAddEmployee($event)"></app-employee-form>
+  </div>
 </section>
