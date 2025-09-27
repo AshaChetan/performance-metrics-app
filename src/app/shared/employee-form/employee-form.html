@@ -2,19 +2,19 @@
   <div class="form-control">
     <label for="name">Name</label>
     <input formControlName="name" name="name" id="name"/>
-    <small *ngIf="employeeForm.get('name')?.touched && employeeForm.get('name')?.invalid">Name required</small>
+    <small class="error-message" *ngIf="employeeForm.get('name')?.touched && employeeForm.get('name')?.invalid">Name required</small>
   </div>
 
   <div class="form-control">
     <label for="role">Role</label>
     <input formControlName="role" name="role" id="role"/>
-    <small *ngIf="employeeForm.get('role')?.touched && employeeForm.get('role')?.invalid">Role required</small>
+    <small class="error-message" *ngIf="employeeForm.get('role')?.touched && employeeForm.get('role')?.invalid">Role required</small>
   </div>
 
   <div class="form-control">
     <label for="score">Score</label>
     <input type="number" formControlName="score" name="score" id="score"/>
-    <small *ngIf="employeeForm.get('score')?.touched && employeeForm.get('score')?.invalid">Score 0-100</small>
+    <small class="error-message" *ngIf="employeeForm.get('score')?.touched && employeeForm.get('score')?.invalid">Score 0-100</small>
   </div>
   <div class="form-control">
    <button type="submit">Add</button>

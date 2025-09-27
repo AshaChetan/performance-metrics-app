@@ -1,0 +1,16 @@
+@import '../_variables';
+
+.main-container{
+    .navigation{
+        margin-bottom: $spacing;
+        height: auto;
+        a{
+            padding: 10px;
+            border: 1px solid #000;
+            background: $primary-color;
+            color: white;
+            font-size: 12px;
+            text-decoration: none;
+        }
+    }
+}

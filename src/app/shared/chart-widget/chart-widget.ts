@@ -11,7 +11,7 @@ import { NgChartsModule } from 'ng2-charts';
   styleUrls: ['./chart-widget.scss']
 })
 export class ChartWidget {
- @Input() chartOptions: ChartConfiguration<'bar'>['options'] | undefined = undefined;
- @Input() chartData: ChartConfiguration<'bar'>['data'] | undefined = undefined;
-
+ @Input() chartOptions: ChartConfiguration<'bar'>['options'] | undefined;
+ @Input() chartData: ChartConfiguration<'bar'>['data'] | undefined;
+ @Input() title = '';
 }
