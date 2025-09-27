@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Employee } from '../../core/models/employee.model';
 
 @Component({
   selector: 'app-employee-card',
@@ -9,5 +10,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./employee-card.scss']
 })
 export class EmployeeCard {
-
+  @Input() employee: Employee | null = null;
 }

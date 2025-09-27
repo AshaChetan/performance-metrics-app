@@ -1,1 +1,6 @@
-<p>employee-card works!</p>
+<article *ngIf="employee">
+  <h3>{{ employee.name }}</h3>
+  <p>{{ employee.role }}</p>
+  <p>Score: {{ employee.score }}</p>
+  <p *ngIf="employee.notes">{{ employee.notes }}</p>
+</article>
