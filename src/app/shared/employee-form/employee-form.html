@@ -1,1 +1,21 @@
-<p>employee-form works!</p>
+<form [formGroup]="employeeForm" (ngSubmit)="submit()">
+  <div>
+    <label>Name</label>
+    <input formControlName="name" />
+    <small *ngIf="employeeForm.get('name')?.touched && employeeForm.get('name')?.invalid">Name required</small>
+  </div>
+
+  <div>
+    <label>Role</label>
+    <input formControlName="role" />
+    <small *ngIf="employeeForm.get('role')?.touched && employeeForm.get('role')?.invalid">Role required</small>
+  </div>
+
+  <div>
+    <label>Score</label>
+    <input type="number" formControlName="score" />
+    <small *ngIf="employeeForm.get('score')?.touched && employeeForm.get('score')?.invalid">Score 0-100</small>
+  </div>
+
+  <button type="submit">Add</button>
+</form>
