@@ -12,6 +12,9 @@ export class PerformanceService {
   private readonly _employees$ = new BehaviorSubject<Employee[]>([]);
   readonly employees$: Observable<Employee[]> = this._employees$.asObservable();
 
+  //converting observable into signal
+  readonly employeesSignal = toSignal(this.employees$, { initialValue: [] as Employee[] });
+
   loadMockData() {
     const mock: Employee[] = [
       { id: '1', name: 'John', role: 'Developer', score: 85 },

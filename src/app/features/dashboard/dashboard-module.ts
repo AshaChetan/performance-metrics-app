@@ -15,7 +15,8 @@ import { EmployeeCard } from '../../shared/employee-card/employee-card';
     CommonModule,
     DashboardRoutingModule,
     ChartWidget,
-    EmployeeForm
+    EmployeeForm,
+    EmployeeCard
   ]
 })
 export class DashboardModule { }
