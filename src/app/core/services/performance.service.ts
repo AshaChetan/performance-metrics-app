@@ -19,7 +19,8 @@ export class PerformanceService {
     const mock: Employee[] = [
       { id: '1', name: 'John', role: 'Developer', score: 85 },
       { id: '2', name: 'James', role: 'Designer', score: 70 },
-      { id: '3', name: 'Barbie', role: 'QA', score: 90 }
+      { id: '3', name: 'Barbie', role: 'QA', score: 90 },
+      { id: '4', name: 'Asha', role: 'Developer', score: 80}
     ];
     this._employees$.next(mock);
   }

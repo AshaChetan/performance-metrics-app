@@ -1,0 +1,19 @@
+@import '../../../variables.scss';
+
+.dashboard {
+  padding: $spacing;
+  border: $border;
+  .chart-area, .form-area, .cards{
+    border: $border;
+    padding:$spacing;  
+    margin-bottom: $spacing;
+  }
+  .chart-area {
+    height: auto;
+  }
+  .cards {
+    display: flex;
+    gap: $spacing;
+    flex-wrap: wrap;
+  }
+}
