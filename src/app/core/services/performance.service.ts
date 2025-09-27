@@ -42,4 +42,24 @@ export class PerformanceService {
     const currentEmp = this._employees$.getValue();
     this._employees$.next([...currentEmp, emp]);
   }
+
+  averageScoreByRole(){
+    return this.employees$.pipe(
+      map(list => {
+        const roleSummary: { [role: string]: { sum: number; count: number } } = {};
+        list.forEach(e => {
+          if (!roleSummary[e.role]) {
+            roleSummary[e.role] = { sum: 0, count: 0 };
+          }
+          roleSummary[e.role].sum += e.score;
+          roleSummary[e.role].count += 1;
+        });
+        return Object.entries(roleSummary).map(([role, { sum, count }]) => ({
+          role,
+          average: count ? sum / count : 0,
+          count
+          }));
+      })
+    );
+  }
 }
