@@ -21,17 +21,17 @@ bash
     git clone https://github.com/YourUsername/performance-metrics-app.git
     cd performance-metrics-app
 
-#2. Install dependencies
+### 2. Install dependencies
     npm install
 
-#3. Run the application
+### 3. Run the application
     ng serve
     Open your browser at http://localhost:4200
 
-#4. Run unit tests with coverage
+### 4. Run unit tests with coverage
     ng test --code-coverage
 
-#Architecture & Design Decisions
+### Architecture & Design Decisions
 
 Modular Structure: Feature modules for Dashboard, Reports, and Settings.
 Standalone Components: EmployeeFormComponent, EmployeeCardComponent, ChartWidgetComponent.
@@ -40,13 +40,13 @@ Data Handling: Mock backend data simulated using services with Observable and ta
 Styling: SCSS with variables, supports light/dark theme toggling.
 Charting: Chart.js via a reusable chart component.
 
-##State Management & Services
+### State Management & Services
 
 PerformanceService: Manages employees data, computes averages by role, adds new employees.
 ThemeService: Manages dark/light theme using Angular Signals.
 Signals and Observables are used to automatically update the UI when data changes.
 
-#Testing Strategy:
+### Testing Strategy:
 Service Tests: PerformanceService and ThemeService are tested for:
 Data fetching & adding employees
 Error handling (catchError)
