@@ -7,13 +7,19 @@
     border: $border;
     padding:$spacing;  
     margin-bottom: $spacing;
+    border-radius:10px;
   }
   .chart-area {
     height: auto;
+    background-color: #89cdef;
+  }
+  .form-area{
+    background-color: #fad9bb;
   }
   .cards {
     display: flex;
     gap: $spacing;
     flex-wrap: wrap;
+    background-color: #d2efee;
   }
 }

@@ -8,3 +8,12 @@ body {
   margin: 0;
   padding: $spacing;
 }
+body.dark-theme {
+  background: #212121;
+  color: #eee;
+  .dashboard {
+  .chart-area, .form-area, .cards{
+    background: #000000a8!important;
+  }
+}
+}

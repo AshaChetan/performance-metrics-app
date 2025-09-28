@@ -1,15 +1,4 @@
 <div class="reports">
-  <form [formGroup]="filterForm" class="filters">
-    <label>
-      Role:
-      <input type="text" formControlName="role" placeholder="e.g. Developer" />
-    </label>
-    <label>
-      Min Score:
-      <input type="number" formControlName="minScore" />
-    </label>
-  </form>
-
   <div class="chart">
     <!-- reuse standalone ChartWidget Component -->
     <app-chart-widget *ngIf="chartData$ | async as chartData"

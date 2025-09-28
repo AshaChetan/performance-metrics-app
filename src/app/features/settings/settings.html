@@ -1,1 +1,8 @@
-<p>settings works!</p>
+<section class="settings">
+  <h2>Settings</h2>
+
+  <div class="theme">
+    <p>Current theme: {{ theme.isDarkMode() ? 'Dark' : 'Light' }}</p>
+    <button (click)="toggleTheme()">Toggle Theme</button>
+  </div>
+</section>
