@@ -8,7 +8,7 @@ describe('ChartWidget', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ChartWidget]
+      imports: [ChartWidget]
     })
     .compileComponents();
 

@@ -8,7 +8,7 @@ describe('EmployeeCard', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [EmployeeCard]
+      imports: [EmployeeCard]
     })
     .compileComponents();
 
