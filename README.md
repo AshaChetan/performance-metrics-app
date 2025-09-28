@@ -18,7 +18,7 @@ A modular Angular application to display and manage employee performance metrics
 
 ### 1. Clone the repository
 bash
-    git clone https://github.com/YourUsername/performance-metrics-app.git
+    git clone https://github.com/AshaChetan/performance-metrics-app.git
     cd performance-metrics-app
 
 ### . Install dependencies
