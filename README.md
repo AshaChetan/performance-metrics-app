@@ -1,59 +1,60 @@
-# PerformanceMetricsApp
+# Performance Metrics App
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.5.
+A modular Angular application to display and manage employee performance metrics using charts, forms, and reusable components. This project uses **RxJS Observables** and **Angular Signals** for state management, with a clean modular structure.
 
-## Development server
+---
 
-To start a local development server, run:
+## **Table of Contents**
+1. [Project Setup](#project-setup)
+2. [Architecture & Design Decisions](#architecture--design-decisions)
+3. [Modules & Components](#modules--components)
+4. [State Management & Services](#state-management--services)
+5. [Testing Strategy](#testing-strategy)
+6. [Jira Task Breakdown](#jira-task-breakdown)
 
-```bash
-ng serve
-```
+---
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## **Project Setup**
 
-## Code scaffolding
+### 1. Clone the repository
+bash
+    git clone https://github.com/YourUsername/performance-metrics-app.git
+    cd performance-metrics-app
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+#2. Install dependencies
+    npm install
 
-```bash
-ng generate component component-name
-```
+#3. Run the application
+    ng serve
+    Open your browser at http://localhost:4200
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+#4. Run unit tests with coverage
+    ng test --code-coverage
 
-```bash
-ng generate --help
-```
+#Architecture & Design Decisions
 
-## Building
+Modular Structure: Feature modules for Dashboard, Reports, and Settings.
+Standalone Components: EmployeeFormComponent, EmployeeCardComponent, ChartWidgetComponent.
+State Management: BehaviorSubject + Angular Signals.
+Data Handling: Mock backend data simulated using services with Observable and tap.
+Styling: SCSS with variables, supports light/dark theme toggling.
+Charting: Chart.js via a reusable chart component.
 
-To build the project run:
+##State Management & Services
 
-```bash
-ng build
-```
+PerformanceService: Manages employees data, computes averages by role, adds new employees.
+ThemeService: Manages dark/light theme using Angular Signals.
+Signals and Observables are used to automatically update the UI when data changes.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+#Testing Strategy:
+Service Tests: PerformanceService and ThemeService are tested for:
+Data fetching & adding employees
+Error handling (catchError)
+Signal/Observable updates
+Form Component Tests: EmployeeFormComponent
+Validation rules
+Submit events
+Tools: Jasmine + Karma
+Commands:
+ng test  # Run all tests
+ng test --code-coverage  # Run tests with coverage report
