@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, signal } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
 import { ChartConfiguration } from 'chart.js';
 import { PerformanceService } from '../../core/services/performance.service';
 import { Subject, Subscription, takeUntil } from 'rxjs';
@@ -11,41 +11,49 @@ import { Employee } from '../../core/models/employee.model';
   styleUrls: ['./dashboard.scss']
 })
 export class Dashboard implements OnInit, OnDestroy{
-  employeesSignal:any;
+  private perf = inject(PerformanceService)
+  employeesSignal = this.perf.employeesSignal;
+  chartData: ChartConfiguration<'bar'>['data'] | undefined;
+  chartOptions: ChartConfiguration<'bar'>['options'] = { responsive: true };
+  errorMsg = '';
   private destroy$ = new Subject<void>();
-  chartData: ChartConfiguration<'bar'>['data'] = { labels: [], datasets: [] };
-  chartOptions: ChartConfiguration<'bar'>['options'] = {
-  responsive: true,
-  maintainAspectRatio: false,
-  };
-  
-  constructor(private perf: PerformanceService) {}
+
+  constructor() {}
 
   ngOnInit() {
-    // load initial mock data
-    this.perf.loadMockData();
-
-    this.employeesSignal = this.perf.employeesSignal; 
-
-    // subscribe to employees$ to update chart whenever employees change
-      this.perf.employees$.pipe(takeUntil(this.destroy$))
+    // Load initial data
+    this.perf.getEmployees()
+      .pipe(takeUntil(this.destroy$))
+      .subscribe({
+        next: (list) => {
+          this.chartData = this.perf.getChartDataForEmployees(list);
+          this.errorMsg = '';
+      },
+      error: (err) => {
+          console.error('Error loading employees:', err);
+          this.errorMsg = 'Failed to load employees. Please try again!';
+        }
+    })
+    // Update chart when employees change
+    this.perf.employees$
+      .pipe(takeUntil(this.destroy$))
       .subscribe(list => {
         this.chartData = this.perf.getChartDataForEmployees(list);
-      })
+      });
   }
 
-  onAddEmployee(payload: { name: string; role: string; score: number }) {
-    const newEmp: Employee = {
-      id: Date.now().toString(),
-      name: payload.name,
-      role: payload.role,
-      score: payload.score
-    };
-    this.perf.addEmployee(newEmp);
+  onAddEmployee(emp: Employee) {
+    try {
+      this.perf.addEmployee(emp);
+      this.errorMsg = ''; // clear any previous errors
+    } catch (err) {
+      console.error('Error adding employee:', err);
+      this.errorMsg = 'Could not add employee. Please try again!';
+    }
   }
 
-   ngOnDestroy() {
-     this.destroy$.next();
+  ngOnDestroy() {
+    this.destroy$.next();
     this.destroy$.complete();
   }
 

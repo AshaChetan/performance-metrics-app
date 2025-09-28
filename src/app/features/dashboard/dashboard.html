@@ -1,13 +1,17 @@
 <section class="dashboard">
   <h2>Dashboard</h2>
-
-  <div class="chart-area">
-    <app-chart-widget [chartData]="chartData" [chartOptions]="chartOptions"></app-chart-widget>
+  <div *ngIf="errorMsg" class="alert alert-danger">
+    {{ errorMsg }}
   </div>
+  <div class="content-area">
   <div class="form-area">
     <app-employee-form (formSubmit)="onAddEmployee($event)"></app-employee-form>
   </div>
+  <div class="chart-area">
+    <app-chart-widget [chartData]="chartData" [chartOptions]="chartOptions"></app-chart-widget>
+  </div>
   <div class="cards">
     <app-employee-card *ngFor="let emp of employeesSignal()" [employee]="emp"></app-employee-card>
+  </div>
   </div>
 </section>

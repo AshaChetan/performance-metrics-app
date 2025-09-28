@@ -3,11 +3,17 @@
 .dashboard {
   padding: $spacing;
   border: $border;
+  .content-area{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
   .chart-area, .form-area, .cards{
     border: $border;
     padding:$spacing;  
     margin-bottom: $spacing;
     border-radius:10px;
+    margin-right: $spacing;
   }
   .chart-area {
     height: auto;

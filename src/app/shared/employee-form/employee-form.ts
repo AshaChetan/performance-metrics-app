@@ -16,7 +16,7 @@ export class EmployeeForm {
   @Output() formSubmit = new EventEmitter<{
     name:string;
     role:string;
-    score:number
+    score:number;
   }>();
 
   constructor(private fb: FormBuilder) {
