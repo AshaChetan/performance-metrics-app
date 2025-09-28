@@ -21,17 +21,23 @@ bash
     git clone https://github.com/YourUsername/performance-metrics-app.git
     cd performance-metrics-app
 
-### 2. Install dependencies
+### . Install dependencies
     npm install
-
-### 3. Run the application
+### . Run the application
     ng serve
     Open your browser at http://localhost:4200
 
-### 4. Run unit tests with coverage
+### . Run unit tests with coverage
     ng test --code-coverage
 
-### Architecture & Design Decisions
+### 3. | Module    | Components & Features                                   |
+| --------- | ------------------------------------------------------- |
+| Dashboard | Chart, Employee Form, Employee Cards, Dynamic Updates   |
+| Reports   | Aggregated Charts, Filtering using RxJS streams         |
+| Settings  | App Configuration, Theme Toggle, Optional Employee Form |
+
+
+### 4. Architecture & Design Decisions
 
 Modular Structure: Feature modules for Dashboard, Reports, and Settings.
 Standalone Components: EmployeeFormComponent, EmployeeCardComponent, ChartWidgetComponent.
